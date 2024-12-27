@@ -14,7 +14,7 @@ const Photo = () => {
             }}
             >
                 {/* image */}
-            <motion.div className="w-[298px] h-[298px] xl:w-[498px] xl:h-[498px] mix-blend-lighten absolute">
+            <motion.div className="w-[248px] h-[248px] xl:w-[448px] xl:h-[448px] mix-blend-lighten absolute">
                 <Image src="/assets/photo.png"
                 priority
                 quality={100}
@@ -25,7 +25,7 @@ const Photo = () => {
 
             {/* circle */}
             <motion.svg
-                className="w-[300px] xl:w-[506px] h-[300px] xl:h-[506px]"
+                className="w-[250px] xl:w-[456px] h-[250px] xl:h-[456px]"
                 fill="transparent"
                 viewBox="0 0 506 506"
                 xmlns="http://www.w3.org/2000/svg"

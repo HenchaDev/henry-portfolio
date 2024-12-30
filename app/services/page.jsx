@@ -7,62 +7,31 @@ const services = [
     {
         num: '01',
         title: 'Web Development',
-<<<<<<< HEAD
-        description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
-=======
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, magni?',
->>>>>>> refs/remotes/origin/main
         href: ""
     },
     {
         num: '02',
         title: 'UI/UX Design',
-<<<<<<< HEAD
-        description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
-=======
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, magni?',
->>>>>>> refs/remotes/origin/main
         href: ""
     },
     {
         num: '03',
         title: 'Logo Design',
-<<<<<<< HEAD
-        description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
-=======
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, magni?',
->>>>>>> refs/remotes/origin/main
         href: ""
     },
     {
         num: '04',
         title: 'SEO',
-<<<<<<< HEAD
-        description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit.',
-=======
         description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, magni?',
->>>>>>> refs/remotes/origin/main
         href: ""
     }
 ]
 
 import { motion } from "framer-motion";
 
-<<<<<<< HEAD
-const Services = () => {
-   return (
-        <section className="min-h-[80vh] flex flex-col justify-center py-12 xl:py-0">
-            <div className="container mx-auto">
-                <motion.div 
-                    initial: 1,
-                    transition: 
-                >
-
-                </motion.div>
-            </div>
-        </section>
-   );
-=======
 
 
 const Services = () => {
@@ -102,7 +71,6 @@ const Services = () => {
             </div>
         </section>
     );
->>>>>>> refs/remotes/origin/main
 };
 
 export default Services;

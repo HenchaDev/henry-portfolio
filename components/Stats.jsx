@@ -22,6 +22,41 @@ const stats = [
 ];
 
 const Stats = () => {
+    const [stats, setStats] = useState(initialStats);
+
+    useEffect(() => {
+        const fetchCommitCount = async () => {  // Fixed arrow function syntax
+            const username = 'HenchaDev';
+            
+            const token = process.env.NEXT_PUBLIC_API_KEY;
+
+            try {
+                const response = await fetch(`https://api.github.com/search/commits?q=author:${username}`, {
+                    headers: {
+                        'Authorization': `token ${token}`,
+                        'Accept': 'application/vnd.github.cloak-preview'
+                    }
+                });
+                
+                const data = await response.json();
+                if (data && data.total_count) {
+                    // Update stats immutably
+                    setStats(prevStats => 
+                        prevStats.map((stat, index) => 
+                            index === 3 ? { ...stat, num: data.total_count } : stat
+                        )
+                    );
+                } else {
+                    console.error('Unable to fetch commit count:', data.message);
+                }
+            } catch (error) {
+                console.error('Error fetching commit count:', error);
+            }
+        };
+
+        fetchCommitCount();
+    }, []);
+
     return (
         <section className="pt-4 pb-12 xl:pt-0 xl:pb-0">
             <div className="container mx-auto">

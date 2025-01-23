@@ -16,7 +16,7 @@ import { SiTailwindcss, SiNextdotjs, SiDjango } from "react-icons/si";
 // about data
 const about = {
     title: "About me",
-    description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab doloremque animi aliquid, dolorum veniam explicabo maxime assumenda adipisci unde voluptatum, nihil tempora obcaecati fugit autem ea. Laudantium nobis provident ipsa.",
+    description: "I’m Henry Mwangi, a tech enthusiast with over 2 years of experience in IT, design, and development. I thrive on solving problems, creating innovative solutions, and continually expanding my skills. Whether it’s freelance projects or full-time developer roles, I’m passionate about delivering impactful results and contributing to meaningful projects.",
     info: [
         {
             fieldName: "Name",
@@ -57,17 +57,23 @@ const about = {
 const experience = {
     icon: '/assets/resume/badge.svg',
     title: 'My Experience',
-    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam excepturi quo animi accusantium quidem, beatae dignissimos. In possimus debitis esse eum iure eos maxime, odio, at nobis dicta architecto sed!",
+    description: "My experience showcases a blend of technical expertise, creativity, and problem-solving. I’ve taken on diverse roles that have sharpened my skills in IT, design, and development while allowing me to deliver meaningful solutions. Each opportunity has pushed me to grow, adapt, and contribute to impactful projects.",
     items: [
+        {
+            company: "IEBC - Kenya",
+            position: "Voting Clerk",
+            duration: "August 2022"
+        },
         {
             company: "Makomboki Tea Factory",
             position: "ICT Support",
             duration: "May 2023 - August 2023"
         },
+        
         {
-            company: "IEBC - Kenya",
-            position: "Voting Clerk",
-            duration: "August 2022"
+            company: "Write The Docs - Kenya",
+            position: "Graphics Designer",
+            duration: "December 2023 - May 2024"
         },
         {
             company: "Vision Writers",
@@ -75,15 +81,20 @@ const experience = {
             duration: "September 2023 - Current"
         },
         {
-            company: "Caritas Nairobi",
-            position: "ICT Intern",
-            duration: "June 2024 - Current"
+            company: "Write The Docs - Kenya",
+            position: "Volunteer Graphics Designer",
+            duration: "December 2023 - May 2024"
         },
         {
-            company: "Write The Docs - Kenya",
-            position: "Graphics Designer",
-            duration: "December 2023 - May 2024"
-        }
+            company: "Caritas Nairobi",
+            position: "ICT Intern",
+            duration: "June 2024 - Dec 2024"
+        },
+        {
+            company: "Caritas Nairobi",
+            position: "ICT Officer",
+            duration: "January 2025 - Current"
+        },
     ]
 };
 
@@ -91,7 +102,7 @@ const experience = {
 const education = {
     icon: '/assets/resume/cap.svg',
     title: 'My Education',
-    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam excepturi quo animi accusantium quidem, beatae dignissimos. In possimus debitis esse eum iure eos maxime, odio, at nobis dicta architecto sed!",
+    description: "My education has given me a strong foundation and a solid background in technology and problem-solving. From excelling in school to pursuing a degree in IT at Meru University, I’ve developed the skills and knowledge that fuel my passion for innovation.",
     items: [
         {
             institution: "Makomboki Primary School",
@@ -113,7 +124,7 @@ const education = {
 
 const skills = {
     title: "My skills",
-    description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam iste odit exercitationem aperiam iure provident officia consequatur cupiditate error voluptatem recusandae vel cumque nulla dolorem ad laboriosam obcaecati, accusamus rerum.",
+    description: "I’m a tech enthusiast with a passion for building and designing. From crafting clean, responsive layouts with HTML, CSS, and Tailwind to building dynamic apps with React, Next.js, and Django, I enjoy turning ideas into functional and beautiful projects. I’m also experienced with Linux systems, love experimenting with Figma for design, and always look forward to learning something new.",
     skillList: [
         {
             icon: <FaHtml5 />,

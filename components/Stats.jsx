@@ -1,8 +1,9 @@
 "use client";
 
 import CountUp from "react-countup";
+import { useState, useEffect } from "react";
 
-const stats = [
+const initialStats = [
     {
         num: 12,
         text: "Years of experience",
@@ -16,7 +17,7 @@ const stats = [
         text: "Technologies mastered",
     },
     {
-        num: 500,
+        num: 0,
         text: "Code commits",
     },
 ];
@@ -25,9 +26,8 @@ const Stats = () => {
     const [stats, setStats] = useState(initialStats);
 
     useEffect(() => {
-        const fetchCommitCount = async () => {  // Fixed arrow function syntax
+        const fetchCommitCount = async () => {
             const username = 'HenchaDev';
-            
             const token = process.env.NEXT_PUBLIC_API_KEY;
 
             try {
@@ -40,7 +40,6 @@ const Stats = () => {
                 
                 const data = await response.json();
                 if (data && data.total_count) {
-                    // Update stats immutably
                     setStats(prevStats => 
                         prevStats.map((stat, index) => 
                             index === 3 ? { ...stat, num: data.total_count } : stat
@@ -61,32 +60,30 @@ const Stats = () => {
         <section className="pt-4 pb-12 xl:pt-0 xl:pb-0">
             <div className="container mx-auto">
                 <div className="flex flex-wrap gap-6 max-w-[80vw] mx-auto xl:max-w-none">
-                    {stats.map((item, index) => {
-                        return (
+                    {stats.map((item, index) => (
                         <div
                             className="flex-1 flex gap-4 items-center justify-center xl:justify-start"
-                            key={index}>
+                            key={index}
+                        >
                             <CountUp 
                                 end={item.num}
                                 duration={5}
                                 delay={2}
-                                className="text-4xl xl:item-6xl font-extrabold"
+                                className="text-4xl xl:text-6xl font-extrabold"
                             />
                             <p 
-                            className={`${
-                                item.text.length < 15 ? "max-w-[100px]" : "max-w-[150px]"
-                            } leading-snug text-white/80`}
+                                className={`${
+                                    item.text.length < 15 ? "max-w-[100px]" : "max-w-[150px]"
+                                } leading-snug text-white/80`}
                             >
                                 {item.text}
                             </p>
                         </div>
-                        )
-                    })}
+                    ))}
                 </div>
             </div>
         </section>
     );
-    
 };
 
-export default Stats
+export default Stats;

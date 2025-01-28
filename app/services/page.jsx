@@ -36,24 +36,18 @@ const services = [
     },
     {
         num: '06',
-        title: 'SEO Optimization',
-        description: 'Improving website visibility on search engines through SEO optimization, including website structure, page speed, and mobile responsiveness.',
-        href: ""
-    },
-    {
-        num: '07',
         title: 'Linux Server Management',
         description: 'Setting up, configuring, and managing Linux servers, and automating tasks with Bash scripting.',
         href: ""
     },
     {
-        num: '08',
+        num: '07',
         title: 'Prototyping & Wireframing',
         description: 'Creating detailed wireframes and prototypes using Figma and Canva to help visualize the final product.',
         href: ""
     },
     {
-        num: '09',
+        num: '08',
         title: 'Technical Consulting',
         description: 'Providing expert advice on technology stacks, system optimization, and troubleshooting technical issues.',
         href: ""

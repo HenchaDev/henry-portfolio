@@ -7,28 +7,58 @@ const services = [
     {
         num: '01',
         title: 'Web Development',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, magni?',
+        description: 'Full-stack web development using Python, Django, JavaScript, Next.js, and Vue.js to build dynamic and responsive websites and web applications.',
         href: ""
     },
     {
         num: '02',
         title: 'UI/UX Design',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, magni?',
+        description: 'Designing user-friendly and visually appealing interfaces using Figma, Canva, HTML, CSS, and JavaScript.',
         href: ""
     },
     {
         num: '03',
-        title: 'Logo Design',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, magni?',
+        title: 'Custom Web Applications',
+        description: 'Developing custom web applications tailored to specific business needs, such as e-commerce platforms, CMS, or CRM tools.',
         href: ""
     },
     {
         num: '04',
-        title: 'SEO',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, magni?',
+        title: 'Frontend Development',
+        description: 'Specializing in frontend development with JavaScript, Next.js, and Vue.js to create interactive and responsive user interfaces.',
+        href: ""
+    },
+    {
+        num: '05',
+        title: 'Backend Development',
+        description: 'Building robust backend systems with Python, Django, and managing servers with Linux and Bash scripting.',
+        href: ""
+    },
+    {
+        num: '06',
+        title: 'SEO Optimization',
+        description: 'Improving website visibility on search engines through SEO optimization, including website structure, page speed, and mobile responsiveness.',
+        href: ""
+    },
+    {
+        num: '07',
+        title: 'Linux Server Management',
+        description: 'Setting up, configuring, and managing Linux servers, and automating tasks with Bash scripting.',
+        href: ""
+    },
+    {
+        num: '08',
+        title: 'Prototyping & Wireframing',
+        description: 'Creating detailed wireframes and prototypes using Figma and Canva to help visualize the final product.',
+        href: ""
+    },
+    {
+        num: '09',
+        title: 'Technical Consulting',
+        description: 'Providing expert advice on technology stacks, system optimization, and troubleshooting technical issues.',
         href: ""
     }
-]
+];
 
 import { motion } from "framer-motion";
 

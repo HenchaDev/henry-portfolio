@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 
 const initialStats = [
     {
-        num: 12,
+        num: 2,
         text: "Years of experience",
     },
     {

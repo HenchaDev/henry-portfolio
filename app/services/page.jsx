@@ -51,7 +51,25 @@ const services = [
         title: 'Technical Consulting',
         description: 'Providing expert advice on technology stacks, system optimization, and troubleshooting technical issues.',
         href: ""
-    }
+    },
+    {
+        num: '09',
+        title: 'Cloud Services (AWS)',
+        description: 'Working with Amazon Web Services (AWS) to develop, deploy, or maintain cloud-based applications and services.',
+        href: ""
+    },
+    {
+        num: '10',
+        title: 'Network Support & Configuration',
+        description: 'Supporting and configuring local networks, ensuring connectivity and stability, and applying foundational networking knowledge (CompTIA A+ and Networking Essentials).',
+        href: ""
+    },
+    {
+        num: '11',
+        title: 'IT Support & Troubleshooting',
+        description: 'Providing on-site and remote IT support including hardware/software installation, system troubleshooting, and user training for efficient business operations.',
+        href: ""
+    },
 ];
 
 import { motion } from "framer-motion";

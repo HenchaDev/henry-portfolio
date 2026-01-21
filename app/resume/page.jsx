@@ -9,6 +9,7 @@ import {
     FaLinux,
     FaVuejs,
     FaPython,
+    FaLaravel,
 } from "react-icons/fa";
 
 import { SiTailwindcss, SiNextdotjs, SiDjango } from "react-icons/si";
@@ -57,33 +58,17 @@ const about = {
 const experience = {
     icon: '/assets/resume/badge.svg',
     title: 'My Experience',
-    description: "My experience showcases a blend of technical expertise, creativity, and problem-solving. I’ve taken on diverse roles that have sharpened my skills in IT, design, and development while allowing me to deliver meaningful solutions. Each opportunity has pushed me to grow, adapt, and contribute to impactful projects.",
+    description: "My experience showcases a blend of technical expertise, creativity, and problem-solving. I've taken on diverse roles that have sharpened my skills in IT, design, and development while allowing me to deliver meaningful solutions. Each opportunity has pushed me to grow, adapt, and contribute to impactful projects.",
     items: [
         {
-            company: "IEBC - Kenya",
-            position: "Voting Clerk",
-            duration: "August 2022"
+            company: "Caritas Nairobi",
+            position: "Full-Stack Developer & Database Admin",
+            duration: "January 2025 - June 2025"
         },
         {
-            company: "Makomboki Tea Factory",
-            position: "ICT Support",
-            duration: "May 2023 - August 2023"
-        },
-        
-        {
-            company: "Write The Docs - Kenya",
-            position: "Graphics Designer",
-            duration: "December 2023 - May 2024"
-        },
-        {
-            company: "Vision Writers",
-            position: "Freelance: Developer, Technical Writer",
-            duration: "September 2023 - Current"
-        },
-        {
-            company: "Write The Docs - Kenya",
-            position: "Volunteer Graphics Designer",
-            duration: "December 2023 - May 2024"
+            company: "Caritas Nairobi",
+            position: "ICT Officer",
+            duration: "January 2025 - June 2025"
         },
         {
             company: "Caritas Nairobi",
@@ -91,9 +76,29 @@ const experience = {
             duration: "June 2024 - Dec 2024"
         },
         {
-            company: "Caritas Nairobi",
-            position: "ICT Officer",
-            duration: "January 2025 - Current"
+            company: "Write The Docs - Kenya",
+            position: "Volunteer Graphics Designer",
+            duration: "December 2023 - May 2024"
+        },
+        {
+            company: "Vision Writers",
+            position: "Freelance: Developer, Technical Writer",
+            duration: "September 2021 - Current"
+        },
+        {
+            company: "Write The Docs - Kenya",
+            position: "Graphics Designer",
+            duration: "December 2023 - May 2024"
+        },
+        {
+            company: "Makomboki Tea Factory",
+            position: "ICT Support",
+            duration: "May 2023 - August 2023"
+        },
+        {
+            company: "IEBC - Kenya",
+            position: "Voting Clerk",
+            duration: "August 2022"
         },
     ]
 };
@@ -169,6 +174,10 @@ const skills = {
         {
             icon: <SiTailwindcss />,
             name: "tailwind.css",
+        },
+        {
+            icon: <FaLaravel />,
+            name: "Laravel",
         },
     ]
 };

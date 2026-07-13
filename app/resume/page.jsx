@@ -30,7 +30,7 @@ const experience = {
   description:
     "A blend of technical expertise, creativity, and problem-solving across IT, design, and full-stack development.",
   items: [
-    { company: "Caritas Nairobi", position: "Full-Stack Developer & Database Admin", duration: "Jan 2025 – Jun 2025" },
+    { company: "Caritas Nairobi", position: "Full-Stack Developer & Database Admin", duration: "Jun 2025 – Current" },
     { company: "Caritas Nairobi", position: "ICT Officer", duration: "Jan 2025 – Jun 2025" },
     { company: "Caritas Nairobi", position: "ICT Intern", duration: "Jun 2024 – Dec 2024" },
     { company: "Write The Docs – Kenya", position: "Graphics Designer", duration: "Dec 2023 – May 2024" },

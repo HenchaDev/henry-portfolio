@@ -9,7 +9,7 @@ import Stats from "@/components/Stats";
 const handleDownload = () => {
   const link = document.createElement("a");
   link.href = "/Henry-CV.pdf";
-  link.setAttribute("download", "Henry-CV.pdf");
+  link.setAttribute("download", "HenryChege.pdf");
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);

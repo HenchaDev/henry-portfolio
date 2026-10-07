@@ -72,7 +72,7 @@ const Contact = () => {
                     Accept: "application/json"
                 },
                 body: JSON.stringify({
-                    access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
+                    access_key: process.env.WEB3FORMS_KEY,
                     subject: `New Portfolio Message - ${formData.service || "General"}`,
                     from_name: `${formData.firstname} ${formData.lastname}`,
                     name: `${formData.firstname} ${formData.lastname}`,

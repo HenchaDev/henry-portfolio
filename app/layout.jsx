@@ -1,4 +1,5 @@
-import { JetBrains_Mono } from "next/font/google"
+import { JetBrains_Mono } from "next/font/google";
+import "@fontsource-variable/jetbrains-mono";
 import "./globals.css";
 
 // components

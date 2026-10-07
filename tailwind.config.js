@@ -32,7 +32,7 @@ module.exports = {
 			"2xl": "1536px",
 		},
 		fontFamily: {
-			primary: "var(--font-jetbrainsMono)",
+			primary: ["'JetBrains Mono Variable'", "monospace"],
 		},
 		extend: {
 			colors: {

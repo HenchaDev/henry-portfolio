@@ -1,18 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
-import React, {useState} from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
 import { BsArrowUpRight, BsGithub } from "react-icons/bs";
 
-import { 
-    Tooltip, 
-    TooltipContent, 
-    TooltipProvider, 
-    TooltipTrigger 
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger
 } from "@radix-ui/react-tooltip";
 
 import Link from "next/link";
@@ -23,136 +23,206 @@ import WorkSliderBtns from "@/components/ui/WorkSliderBtns";
 const projects = [
     {
         num: "01",
-        category: "frontend",
-        title: "project 1",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum commodi explicabo ipsum amet illo tempore!",
-        stack: [{name: "Html 5"}, {name: "Css 3"}, {name: "JavaScript"}],
-        image: "/assets/work/thumb1.png",
-        live: "",
+        category: "Caritas Nairobi Website",
+        title: "Caritas Nairobi Website",
+        description:
+            "The official website for Caritas Nairobi, the social development arm of the Archdiocese of Nairobi.",
+        stack: [
+            { name: "Next.js" },
+            { name: "React" },
+            { name: "GSAP" },
+            { name: "Tailwind.css" },
+            { name: "TypeScript" },
+            { name: "DjangoRest" }
+        ],
+        preview: "", // empty = use the image
+        image: "/assets/image.png", // file lives at public/assets/work/cnbi.png
+        live: "https://new.caritasnairobi.org", // arrow button still opens the real site
         github: ""
     },
     {
         num: "02",
         category: "fullstack",
         title: "project 2",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum commodi explicabo ipsum amet illo tempore!",
-        stack: [{name: "Html 5"}, {name: "Css 3"}, {name: "Javascript"}, {name: "Django"}],
+        description:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum commodi explicabo ipsum amet illo tempore!",
+        stack: [{ name: "Html 5" }, { name: "Css 3" }, { name: "Javascript" }, { name: "Django" }],
         image: "/assets/work/thumb2.png",
         live: "",
-        github: "",
+        github: ""
     },
     {
         num: "03",
         category: "frontend",
         title: "project 3",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum commodi explicabo ipsum amet illo tempore!",
-        stack: [{name: "Next.js"}, {name: "Tailwind.css"}, {name: "JavaScript"}],
+        description:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum commodi explicabo ipsum amet illo tempore!",
+        stack: [{ name: "Next.js" }, { name: "Tailwind.css" }, { name: "JavaScript" }],
         image: "/assets/work/thumb3.png",
         live: "",
-        github: "",
+        github: ""
     }
-]
+];
+
+/**
+ * Renders a live website inside the slide, scaled down so it looks
+ * like a desktop screen instead of a cramped mobile layout.
+ */
+const SitePreview = ({ url, title }) => {
+    const DESKTOP_WIDTH = 1280; // width the site is rendered at
+    const wrapRef = useRef(null);
+    const [size, setSize] = useState({ scale: 0.4, height: 1000 });
+
+    useEffect(() => {
+        const el = wrapRef.current;
+        if (!el) return;
+
+        const update = () => {
+            const scale = el.clientWidth / DESKTOP_WIDTH;
+            setSize({ scale, height: el.clientHeight / scale });
+        };
+
+        update();
+        const observer = new ResizeObserver(update);
+        observer.observe(el);
+        return () => observer.disconnect();
+    }, []);
+
+    return (
+        <div ref={wrapRef} className="relative w-full h-full overflow-hidden bg-white">
+            <iframe
+                src={url}
+                title={title}
+                loading="lazy"
+                style={{
+                    width: DESKTOP_WIDTH,
+                    height: size.height,
+                    transform: `scale(${size.scale})`,
+                    transformOrigin: "top left",
+                    border: 0
+                }}
+            />
+        </div>
+    );
+};
 
 const Work = () => {
-    const [project, setProject] = useState(projects[0])
+    const [project, setProject] = useState(projects[0]);
 
     const handleSlideChange = (swiper) => {
-        // get current slide index
-        const currentIndex = swiper.activeIndex;
-        // update project state based on current slide index
-        setProject(projects[currentIndex]);
+        setProject(projects[swiper.activeIndex]);
     };
 
     return (
-        <motion.section 
-        initial={{opacity: 0}}
-        animate={{opacity: 1}}
-        className="min-h-[80vh] flex flex-col justify-center py-12 xl:px-0"
+        <motion.section
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="min-h-[80vh] flex flex-col justify-center py-8 sm:py-12 xl:px-0"
         >
-            <div className="container mx-auto">
-                <div className="flex flex-col xl:flex-row xl:gap-[30px]">
-                    <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
-                        <div className="flex flex-col gap-[30px] h-[50%]">
+            <div className="container mx-auto px-4 sm:px-6">
+                <div className="flex flex-col xl:flex-row gap-8 xl:gap-[30px]">
+
+                    {/* text */}
+                    <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none text-center xl:text-left">
+                        <div className="flex flex-col gap-5 sm:gap-[30px]">
                             {/* outline num */}
-                            <div className="text-8xl leading-none font-extrabold text-transparent text-outline">
+                            <div className="text-6xl sm:text-7xl xl:text-8xl leading-none font-extrabold text-transparent text-outline">
                                 {project.num}
                             </div>
                             {/* project category */}
-                            <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">{project.category} project</h2>
+                            <h2 className="text-3xl sm:text-4xl xl:text-[42px] font-bold leading-tight xl:leading-none text-white transition-all duration-500 capitalize">
+                                {project.category} project
+                            </h2>
                             {/* project description */}
-                            <p className="text-white/60">{project.description}</p>
+                            <p className="text-sm sm:text-base text-white/60 max-w-[600px] mx-auto xl:mx-0">
+                                {project.description}
+                            </p>
                             {/* stack */}
-                            <ul className="flex gap-4">
-                                {project.stack.map((item, index) => {
-                                    return <li key={index} className="text-xl text-accent">{item.name}
-                                    {/* remove last comma */}
-                                    {index !== project.stack.length - 1 && ","}</li>;
-                                })}
+                            <ul className="flex flex-wrap justify-center xl:justify-start gap-x-3 gap-y-1 sm:gap-x-4">
+                                {project.stack.map((item, index) => (
+                                    <li key={index} className="text-base sm:text-xl text-accent">
+                                        {item.name}
+                                        {/* remove last comma */}
+                                        {index !== project.stack.length - 1 && ","}
+                                    </li>
+                                ))}
                             </ul>
                             {/* border */}
                             <div className="border border-white/20"></div>
                             {/* buttons */}
-                            <div className="flex items-center gap-4">
-                                {/* live project button */}
-                                <Link href={project.live}>
-                                    <TooltipProvider delayDuration={100}>
-                                        <Tooltip>
-                                            <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
-                                                <BsArrowUpRight className="text-white text-3xl group-hover:text-accent" />
-                                            </TooltipTrigger>
-                                            <TooltipContent className="bg-white/30 rounded-md">
-                                                <p>Live project</p>
-                                            </TooltipContent>
-                                        </Tooltip>
-                                    </TooltipProvider>
-                                </Link>
-                                {/* github project button */}
-                                <Link href={project.github}>
-                                    <TooltipProvider delayDuration={100}>
-                                        <Tooltip>
-                                            <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
-                                                <BsGithub className="text-white text-3xl group-hover:text-accent" />
-                                            </TooltipTrigger>
-                                            <TooltipContent>
-                                                <p>Github Repository</p>
-                                            </TooltipContent>
-                                        </Tooltip>
-                                    </TooltipProvider>
-                                </Link>
+                            <div className="flex items-center justify-center xl:justify-start gap-4">
+                                {project.live && (
+                                    <Link href={project.live} target="_blank" rel="noopener noreferrer">
+                                        <TooltipProvider delayDuration={100}>
+                                            <Tooltip>
+                                                <TooltipTrigger className="w-[56px] h-[56px] sm:w-[70px] sm:h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
+                                                    <BsArrowUpRight className="text-white text-2xl sm:text-3xl group-hover:text-accent" />
+                                                </TooltipTrigger>
+                                                <TooltipContent className="bg-white/30 rounded-md">
+                                                    <p>Live project</p>
+                                                </TooltipContent>
+                                            </Tooltip>
+                                        </TooltipProvider>
+                                    </Link>
+                                )}
+                                {project.github && (
+                                    <Link href={project.github} target="_blank" rel="noopener noreferrer">
+                                        <TooltipProvider delayDuration={100}>
+                                            <Tooltip>
+                                                <TooltipTrigger className="w-[56px] h-[56px] sm:w-[70px] sm:h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
+                                                    <BsGithub className="text-white text-2xl sm:text-3xl group-hover:text-accent" />
+                                                </TooltipTrigger>
+                                                <TooltipContent>
+                                                    <p>Github Repository</p>
+                                                </TooltipContent>
+                                            </Tooltip>
+                                        </TooltipProvider>
+                                    </Link>
+                                )}
                             </div>
                         </div>
                     </div>
 
-                    <div className="w-full xl:w-[50%]">
-                        <Swiper 
-                        spaceBetween={30} 
-                        slidesPerView={1} 
-                        className="xl:h-[520px] mb-12" 
-                        onSlideChange={handleSlideChange}>
-                            {projects.map((project, index) => {
-                                return (
+                    {/* slider */}
+                    <div className="w-full min-w-0 xl:w-[50%]">
+                        <Swiper
+                            spaceBetween={30}
+                            slidesPerView={1}
+                            className="xl:h-[520px] mb-8 xl:mb-12"
+                            onSlideChange={handleSlideChange}
+                        >
+                            {projects.map((item, index) => (
                                 <SwiperSlide key={index} className="w-full">
-                                    <div className="h-[460px] relative group flex justify-center items-center bg-pink-50/20">
-                                    {/* overlay */}
-                                    <div className="absolute top-0 bottom-0 w-full h-full last:bg-black/10 z-10"></div>
-                                    {/* image */}
-                                    <div className="relative w-full h-full">
-                                        <Image src={project.image}  fill className="object-cover" alt=""/>
-                                    </div>
-                                    </div>
+                                    {({ isActive }) => (
+                                        // 16:10 frame on small screens, fixed height on desktop
+                                        <div className="relative w-full aspect-[16/10] xl:aspect-auto xl:h-[460px] overflow-hidden rounded-lg bg-white/5">
+                                            {item.preview ? (
+                                                // only load the live site while its slide is active
+                                                isActive && <SitePreview url={item.preview} title={item.title} />
+                                            ) : (
+                                                <Image
+                                                    src={item.image}
+                                                    fill
+                                                    sizes="(min-width: 1280px) 50vw, 100vw"
+                                                    className="object-contain"
+                                                    alt={item.title}
+                                                />
+                                            )}
+                                        </div>
+                                    )}
                                 </SwiperSlide>
-                                    
-                                );
-                            })}
+                            ))}
                             {/* slider buttons */}
-                            <WorkSliderBtns containerStyles="flex gap-2 absolute right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-none" btnStyles="bg-accent hover:bg-accent-hover text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all"/>
+                            <WorkSliderBtns
+                                containerStyles="flex gap-2 absolute right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-start"
+                                btnStyles="bg-accent hover:bg-accent-hover text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all"
+                            />
                         </Swiper>
                     </div>
-                </div> 
+                </div>
             </div>
         </motion.section>
     );
-}
+};
 
 export default Work;
-

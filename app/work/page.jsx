@@ -23,7 +23,7 @@ import WorkSliderBtns from "@/components/ui/WorkSliderBtns";
 const projects = [
     {
         num: "01",
-        category: "Caritas Nairobi Website",
+        category: "Fullstack",
         title: "Caritas Nairobi Website",
         description:
             "The official website for Caritas Nairobi, the social development arm of the Archdiocese of Nairobi.",
@@ -35,30 +35,58 @@ const projects = [
             { name: "TypeScript" },
             { name: "DjangoRest" }
         ],
-        preview: "", // empty = use the image
-        image: "/assets/image.png", // file lives at public/assets/work/cnbi.png
-        live: "https://new.caritasnairobi.org", // arrow button still opens the real site
+        preview: "",
+        image: "/assets/image.png",
+        fit: "contain",
+        live: "https://new.caritasnairobi.org",
         github: ""
     },
     {
         num: "02",
-        category: "fullstack",
-        title: "project 2",
+        category: "Data Engineering",
+        title: "Core Banking System Migration",
         description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum commodi explicabo ipsum amet illo tempore!",
-        stack: [{ name: "Html 5" }, { name: "Css 3" }, { name: "Javascript" }, { name: "Django" }],
-        image: "/assets/work/thumb2.png",
+            "Led a legacy-to-modern core banking migration for 250,000+ accounts. Built ETL pipelines and SQL migration scripts to clean, validate and move records with 100% data integrity and zero downtime.",
+        stack: [{ name: "SQL" }, { name: "MySQL" }, { name: "Python" }, { name: "ETL" }],
+        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80",
+        fit: "cover",
         live: "",
         github: ""
     },
     {
         num: "03",
-        category: "frontend",
-        title: "project 3",
+        category: "Backend",
+        title: "Secure APIs & Client Portals",
         description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum commodi explicabo ipsum amet illo tempore!",
-        stack: [{ name: "Next.js" }, { name: "Tailwind.css" }, { name: "JavaScript" }],
-        image: "/assets/work/thumb3.png",
+            "Scalable REST and GraphQL APIs with Django and Laravel, secured with OAuth 2.0 and JWT authentication, powering web portals built with Next.js, React and Vue.js.",
+        stack: [
+            { name: "Django" },
+            { name: "Laravel" },
+            { name: "GraphQL" },
+            { name: "OAuth 2.0" },
+            { name: "JWT" }
+        ],
+        image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1600&q=80",
+        fit: "cover",
+        live: "",
+        github: ""
+    },
+    {
+        num: "04",
+        category: "DevOps",
+        title: "Cloud Infrastructure & CI/CD",
+        description:
+            "Containerized microservices deployed on AWS and Azure with Docker and Kubernetes, plus automated CI/CD pipelines that speed up deployments and improve uptime.",
+        stack: [
+            { name: "Docker" },
+            { name: "Kubernetes" },
+            { name: "AWS" },
+            { name: "Azure" },
+            { name: "GitHub Actions" },
+            { name: "GitLab CI" }
+        ],
+        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1600&q=80",
+        fit: "cover",
         live: "",
         github: ""
     }
@@ -200,11 +228,11 @@ const Work = () => {
                                                 // only load the live site while its slide is active
                                                 isActive && <SitePreview url={item.preview} title={item.title} />
                                             ) : (
-                                                <Image
+                                               <Image
                                                     src={item.image}
                                                     fill
                                                     sizes="(min-width: 1280px) 50vw, 100vw"
-                                                    className="object-contain"
+                                                    className={item.fit === "cover" ? "object-cover" : "object-contain"}
                                                     alt={item.title}
                                                 />
                                             )}

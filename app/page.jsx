@@ -33,7 +33,7 @@ const Home = () => {
             </div>
 
             <span className="text-xs sm:text-sm uppercase tracking-widest text-white/50 mb-2 block">
-              Software Developer
+              Software Engineer
             </span>
 
             <h1 className="h1 mb-5 sm:mb-6 !text-4xl sm:!text-5xl md:!text-6xl xl:!text-[80px] leading-tight">
